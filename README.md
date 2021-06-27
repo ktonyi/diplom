@@ -1,9 +1,9 @@
 ## Документация
-* [План]()
+* [План](https://github.com/ktonyi/diplom/blob/master/documentation/Plan.md)
 
-* [Отчет по тестированию]()
+* [Отчет по тестированию](https://github.com/ktonyi/diplom/blob/master/documentation/Report.md)
 
-* [Отчет по автоматизации]()
+* [Отчет по автоматизации](https://github.com/ktonyi/diplom/blob/master/documentation/Summary.md)
 
 ## Запуск приложения
 
