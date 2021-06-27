@@ -15,10 +15,6 @@
 * 4 позитивных (по 2 для каждого способа оплаты)
 * 14 негативных (по 2 для каждого способа оплаты)
 
-Соотношение успешных/неуспешных тестов: 12/6
-![](https://github.com/mkovarsky/QADiploma/blob/master/documentation/allureScreenshot.png)
-
-[Заведено 5 Issue](https://github.com/mkovarsky/QADiploma/issues)
  
 
 ## Общая информация об ошибках
