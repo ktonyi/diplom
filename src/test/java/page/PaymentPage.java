@@ -30,23 +30,23 @@ public class PaymentPage {
         continueButton.click();
     }
 
-    public void successfulPayment() {
+    public void assertSuccessfulPayment() {
         successNotification.waitUntil(Condition.visible, 15000);
     }
 
-    public void notSuccessfulPayment() {
+    public void assertNotSuccessfulPayment() {
         errorNotification.waitUntil(Condition.visible, 15000);
     }
 
-    public void invalidFormat() {
+    public void verifyInvalidFormat() {
         invalidFormatError.shouldBe(Condition.visible);
     }
 
-    public void expiredYear() {
+    public void checkExpiredYear() {
         expiredYearError.shouldBe(Condition.visible);
     }
 
-    public void expiredMonth() {
+    public void checkExpiredMonth() {
         expiredMonthError.shouldBe(Condition.visible);
     }
 }

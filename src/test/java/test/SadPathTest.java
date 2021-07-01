@@ -35,7 +35,7 @@ public class SadPathTest {
         val paymentPage = tourOfferPage.payByCard();
         val invalidCardInformation = DataHelper.getEmptyCardInformation();
         paymentPage.enterCardData(invalidCardInformation);
-        paymentPage.invalidFormat();
+        paymentPage.verifyInvalidFormat();
     }
 
     @DisplayName("Негативный сценарий. Покупка в кредит с незаполненными данными карты.")
@@ -45,7 +45,7 @@ public class SadPathTest {
         val paymentPage = tourOfferPage.buyOnCredit();
         val invalidCardInformation = DataHelper.getEmptyCardInformation();
         paymentPage.enterCardData(invalidCardInformation);
-        paymentPage.invalidFormat();
+        paymentPage.verifyInvalidFormat();
     }
 
     @DisplayName("Негативный сценарий. Покупка по карте с невалидным номером.")
@@ -55,7 +55,7 @@ public class SadPathTest {
         val paymentPage = tourOfferPage.payByCard();
         val invalidCardInformation = DataHelper.getCardInformationWithInvalidNumber();
         paymentPage.enterCardData(invalidCardInformation);
-        paymentPage.notSuccessfulPayment();
+        paymentPage.assertNotSuccessfulPayment();
     }
 
     @DisplayName("Негативный сценарий. Покупка в кредит по данным карты с невалидным номером.")
@@ -65,7 +65,7 @@ public class SadPathTest {
         val paymentPage = tourOfferPage.buyOnCredit();
         val invalidCardInformation = DataHelper.getCardInformationWithInvalidNumber();
         paymentPage.enterCardData(invalidCardInformation);
-        paymentPage.notSuccessfulPayment();
+        paymentPage.assertNotSuccessfulPayment();
     }
 
     @DisplayName("Негативный сценарий. Покупка по карте с истекшим сроком действия(в прошлых годах).")
@@ -75,7 +75,7 @@ public class SadPathTest {
         val paymentPage = tourOfferPage.payByCard();
         val invalidCardInformation = DataHelper.getCardInformationWithExpiredYear();
         paymentPage.enterCardData(invalidCardInformation);
-        paymentPage.expiredYear();
+        paymentPage.checkExpiredYear();
     }
 
     @DisplayName("Негативный сценарий. Покупка в кредит по по данным карты с истекшим сроком действия(в прошлых годах).")
@@ -85,7 +85,7 @@ public class SadPathTest {
         val paymentPage = tourOfferPage.buyOnCredit();
         val invalidCardInformation = DataHelper.getCardInformationWithExpiredYear();
         paymentPage.enterCardData(invalidCardInformation);
-        paymentPage.expiredYear();
+        paymentPage.checkExpiredYear();
     }
 
     @DisplayName("Негативный сценарий. Покупка по карте с истекшим сроком действия(в прошлых месяце).")
@@ -95,7 +95,7 @@ public class SadPathTest {
         val paymentPage = tourOfferPage.payByCard();
         val invalidCardInformation = DataHelper.getCardInformationWithExpiredMonth();
         paymentPage.enterCardData(invalidCardInformation);
-        paymentPage.expiredMonth();
+        paymentPage.checkExpiredMonth();
     }
 
     @DisplayName("Негативный сценарий. Покупка в кредит по по данным карты с истекшим сроком действия(в прошлых месяце).")
@@ -105,7 +105,7 @@ public class SadPathTest {
         val paymentPage = tourOfferPage.buyOnCredit();
         val invalidCardInformation = DataHelper.getCardInformationWithExpiredMonth();
         paymentPage.enterCardData(invalidCardInformation);
-        paymentPage.expiredMonth();
+        paymentPage.checkExpiredMonth();
     }
 
     @DisplayName("Негативный сценарий. Покупка по карте с неверным форматом полей даты.")
@@ -115,7 +115,7 @@ public class SadPathTest {
         val paymentPage = tourOfferPage.payByCard();
         val invalidCardInformation = DataHelper.getCardInformationWithWrongFormatDate();
         paymentPage.enterCardData(invalidCardInformation);
-        paymentPage.expiredMonth();
+        paymentPage.checkExpiredMonth();
     }
 
     @DisplayName("Негативный сценарий. Покупка в кредит по данным карты с неверным форматом полей даты.")
@@ -125,7 +125,7 @@ public class SadPathTest {
         val paymentPage = tourOfferPage.buyOnCredit();
         val invalidCardInformation = DataHelper.getCardInformationWithWrongFormatDate();
         paymentPage.enterCardData(invalidCardInformation);
-        paymentPage.expiredMonth();
+        paymentPage.checkExpiredMonth();
     }
 
     @DisplayName("Негативный сценарий. Покупка по карте с именем держателя на кириллице.")
@@ -135,7 +135,7 @@ public class SadPathTest {
         val paymentPage = tourOfferPage.payByCard();
         val invalidCardInformation = DataHelper.getCardInformationWithCyrillicName();
         paymentPage.enterCardData(invalidCardInformation);
-        paymentPage.invalidFormat();
+        paymentPage.verifyInvalidFormat();
     }
 
     @DisplayName("Негативный сценарий. Покупка в кредит  по данным карты с именем держателя на кириллице.")
@@ -145,7 +145,7 @@ public class SadPathTest {
         val paymentPage = tourOfferPage.buyOnCredit();
         val invalidCardInformation = DataHelper.getCardInformationWithCyrillicName();
         paymentPage.enterCardData(invalidCardInformation);
-        paymentPage.invalidFormat();
+        paymentPage.verifyInvalidFormat();
     }
 
     @DisplayName("Негативный сценарий. Покупка по карте с цифрами в имени держателя.")
@@ -155,7 +155,7 @@ public class SadPathTest {
         val paymentPage = tourOfferPage.payByCard();
         val invalidCardInformation = DataHelper.getCardInformationWithNumericName();
         paymentPage.enterCardData(invalidCardInformation);
-        paymentPage.invalidFormat();
+        paymentPage.verifyInvalidFormat();
     }
 
     @DisplayName("Негативный сценарий. Покупка в кредит  по данным карты с цифрами в имени держателя.")
@@ -165,6 +165,6 @@ public class SadPathTest {
         val paymentPage = tourOfferPage.buyOnCredit();
         val invalidCardInformation = DataHelper.getCardInformationWithNumericName();
         paymentPage.enterCardData(invalidCardInformation);
-        paymentPage.invalidFormat();
+        paymentPage.verifyInvalidFormat();
     }
 }

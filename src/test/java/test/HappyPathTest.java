@@ -41,7 +41,7 @@ public class HappyPathTest {
         val paymentPage = tourOfferPage.payByCard();
         val approvedCardInformation = DataHelper.getValidCardInformation();
         paymentPage.enterCardData(approvedCardInformation);
-        paymentPage.successfulPayment();
+        paymentPage.assertSuccessfulPayment();
         val paymentId = SqlUtils.getPaymentId();
         val statusForPayment = SqlUtils.getStatusForPayment(paymentId);
         Assertions.assertEquals("APPROVED", statusForPayment);
@@ -54,7 +54,7 @@ public class HappyPathTest {
         val paymentPage = tourOfferPage.buyOnCredit();
         val approvedCardInformation = DataHelper.getValidCardInformation();
         paymentPage.enterCardData(approvedCardInformation);
-        paymentPage.successfulPayment();
+        paymentPage.assertSuccessfulPayment();
         val paymentId = SqlUtils.getPaymentId();
         val statusForCredit = SqlUtils.getStatusForCredit(paymentId);
         assertEquals("APPROVED", statusForCredit);
@@ -67,7 +67,7 @@ public class HappyPathTest {
         val paymentPage = tourOfferPage.payByCard();
         val declinedCardInformation = DataHelper.getInvalidCardInformation();
         paymentPage.enterCardData(declinedCardInformation);
-        paymentPage.notSuccessfulPayment();
+        paymentPage.assertNotSuccessfulPayment();
         val paymentId = SqlUtils.getPaymentId();
         val statusForPayment = SqlUtils.getStatusForPayment(paymentId);
         assertThat(statusForPayment, equalTo("DECLINED"));
@@ -80,7 +80,7 @@ public class HappyPathTest {
         val paymentPage = tourOfferPage.buyOnCredit();
         val declinedCardInformation = DataHelper.getInvalidCardInformation();
         paymentPage.enterCardData(declinedCardInformation);
-        paymentPage.notSuccessfulPayment();
+        paymentPage.assertNotSuccessfulPayment();
         val paymentId = SqlUtils.getPaymentId();
         val statusFortCredit = SqlUtils.getStatusForCredit(paymentId);
         assertThat(statusFortCredit, equalTo("DECLINED"));
