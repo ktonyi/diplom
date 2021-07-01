@@ -16,17 +16,17 @@ public class SqlUtils {
     }
 
     public static String getPaymentId() throws SQLException {
-        String payment_id = null;
-        val idSQL = "SELECT payment_id FROM order_entity order by created desc limit 1;";
+        String paymentId = null;
+        val idSQL = "SELECT paymentId FROM order_entity order by created desc limit 1;";
         try (val conn = getConnection();
              val statusStmt = conn.prepareStatement(idSQL)) {
             try (val rs = statusStmt.executeQuery()) {
                 if (rs.next()) {
-                    payment_id = rs.getString("payment_id");
+                    paymentId = rs.getString("payment_id");
                 }
             }
         }
-        return payment_id;
+        return paymentId;
     }
 
     public static String getStatusForPayment(String paymentId) throws SQLException {
