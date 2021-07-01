@@ -22,7 +22,7 @@ public class SqlUtils {
              val statusStmt = conn.prepareStatement(idSQL)) {
             try (val rs = statusStmt.executeQuery()) {
                 if (rs.next()) {
-                    paymentId = rs.getString("payment_id");
+                    paymentId = rs.getString("paymentId");
                 }
             }
         }
