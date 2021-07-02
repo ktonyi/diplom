@@ -4,8 +4,11 @@ import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import data.DataHelper;
 
+import java.time.Duration;
+
 import static com.codeborne.selenide.Selectors.withText;
 import static com.codeborne.selenide.Selenide.$;
+
 
 public class PaymentPage {
 
@@ -31,11 +34,11 @@ public class PaymentPage {
     }
 
     public void assertSuccessfulPayment() {
-        successNotification.waitUntil(Condition.visible, 15000);
+        successNotification.shouldBe(Condition.visible,Duration.ofSeconds(10));
     }
 
     public void assertNotSuccessfulPayment() {
-        errorNotification.waitUntil(Condition.visible, 15000);
+        errorNotification.shouldBe(Condition.visible,Duration.ofSeconds(10));;
     }
 
     public void verifyInvalidFormat() {
